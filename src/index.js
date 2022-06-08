@@ -18,7 +18,7 @@
 
 
 const { registerBlockType } = wp.blocks;
-const { RichText, InspectorControls } = wp.blockEditor;
+const { RichText, InspectorControls, colorPalette } = wp.blockEditor;
 const { ToggleControl, PanelBody, PanelRow, CheckboxControl, SelectControl, ColorPicker } = wp.components;
 
 // registerBlockType('awp/firstblock', {
@@ -96,19 +96,24 @@ registerBlockType('bs/block-sandwitch', {
 								onChange={(newval) => setAttributes({ activateLasers: newval })}
 							/>
 						</PanelRow>
+
+				    
 					</PanelBody>
+					
 				</InspectorControls>
 				<RichText 
 					tagName="h2"
 					placeholder="Write your heading here"
 					value={attributes.myRichHeading}
 					onChange={(newtext) => setAttributes({ myRichHeading: newtext })}
+					style={{color:attributes.favoriteColor}}
 				/>
 				<RichText
 					tagName="p"
 					placeholder="Write your paragraph here"
 					value={attributes.myRichText}
 					onChange={(newtext) => setAttributes({ myRichText: newtext })}
+					style={{color:attributes.favoriteColor}}
 				/>
 			</div>
 		);
@@ -120,6 +125,7 @@ registerBlockType('bs/block-sandwitch', {
 				<RichText.Content 
 					tagName="h2"
 					value={attributes.myRichHeading}
+					style={{color:attributes.favoriteColor}}
 				/>
 				<RichText.Content 
 					tagName="p"

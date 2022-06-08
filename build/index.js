@@ -109,7 +109,8 @@ const {
 } = wp.blocks;
 const {
   RichText,
-  InspectorControls
+  InspectorControls,
+  colorPalette
 } = wp.blockEditor;
 const {
   ToggleControl,
@@ -200,14 +201,20 @@ registerBlockType('bs/block-sandwitch', {
       value: attributes.myRichHeading,
       onChange: newtext => setAttributes({
         myRichHeading: newtext
-      })
+      }),
+      style: {
+        color: attributes.favoriteColor
+      }
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText, {
       tagName: "p",
       placeholder: "Write your paragraph here",
       value: attributes.myRichText,
       onChange: newtext => setAttributes({
         myRichText: newtext
-      })
+      }),
+      style: {
+        color: attributes.favoriteColor
+      }
     }));
   },
   save: props => {
@@ -216,7 +223,10 @@ registerBlockType('bs/block-sandwitch', {
     } = props;
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText.Content, {
       tagName: "h2",
-      value: attributes.myRichHeading
+      value: attributes.myRichHeading,
+      style: {
+        color: attributes.favoriteColor
+      }
     }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(RichText.Content, {
       tagName: "p",
       value: attributes.myRichText
